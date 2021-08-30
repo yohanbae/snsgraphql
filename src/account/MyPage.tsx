@@ -7,7 +7,6 @@ interface Params {
 }
 
 const MyPage = () => {
-	const auth = useAuth()
 	const params: Params = useParams()
 	const { id } = params
 

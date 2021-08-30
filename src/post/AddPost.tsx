@@ -35,6 +35,7 @@ const AddPost = () => {
 				text: postContent,
 				username: auth?.user,
 			})
+			console.log(addPostResult)
 			if (!res.data.createPost) {
 				toast({
 					title: 'Failed to submit',

@@ -1,4 +1,4 @@
-import React, { useState, createContext } from 'react'
+import React from 'react'
 import { ProvideAuth } from './store/useStore'
 import { Provider } from 'urql'
 import Routes from './Routes'

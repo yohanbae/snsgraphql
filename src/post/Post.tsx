@@ -110,6 +110,7 @@ const Post: React.FC<PostType> = ({ node }) => {
 					text: comment,
 					username: auth?.user,
 				})
+				console.log(addCommentResult)
 				if (!result.data.updatePost) {
 					toast({
 						title: 'Failed to submit',
@@ -134,19 +135,21 @@ const Post: React.FC<PostType> = ({ node }) => {
 		}
 	}
 
-	const onDelete = () => {
+	const onDelete = async () => {
 		if (!node.id) {
 			return false
 		}
-		delQuery({ id: node.id })
+		await delQuery({ id: node.id })
+		console.log(delResult)
 	}
 
 	const updateTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
 		setUpdateText(e.target.value)
 	}
 
-	const onUpdateSubmit = () => {
-		updateQuery({ id: node.id, text: updateText })
+	const onUpdateSubmit = async () => {
+		await updateQuery({ id: node.id, text: updateText })
+		console.log(updateResult)
 		onClose()
 	}
 	const onEdit = () => {

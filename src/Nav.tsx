@@ -22,7 +22,7 @@ const Nav = () => {
 	const history = useHistory()
 
 	const onLogout = async () => {
-		const result = await auth?.logout()
+		await auth?.logout()
 	}
 
 	return (

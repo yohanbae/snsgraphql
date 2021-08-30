@@ -1,10 +1,9 @@
-import React, { useEffect, useState, useContext } from 'react'
-import { useMutation, useQuery } from 'urql'
+import React from 'react'
+import { useQuery } from 'urql'
 import { PostType } from './post/interface'
 import AddPost from './post/AddPost'
 import Post from './post/Post'
 import { Container } from '@chakra-ui/react'
-import { useAuth } from './store/useStore'
 
 const PostsQuery = `
 query {
@@ -38,7 +37,7 @@ const List = () => {
 	if (error) return <p>Oh no... {error.message}</p>
 
 	return (
-		<>
+		<React.Fragment>
 			<Container maxW="container.xl">
 				<AddPost />
 				{/* <Button onClick={() => onEdit()}>EDIT POST</Button>
@@ -48,7 +47,7 @@ const List = () => {
 					<Post key={v.node.id} node={v.node} />
 				))}
 			</Container>
-		</>
+		</React.Fragment>
 	)
 }
 export default List

@@ -123,7 +123,7 @@ const useProvideAuth = () => {
 					'TOKEN_SNSGRAPHQL',
 					result.data.signUp.viewer.sessionToken,
 				)
-
+				console.log(signupResult)
 				setUser(result.data.signUp.viewer.user.username)
 				setClientId(result.data.signUp.viewer.user.objectId)
 				const userInfo = {
@@ -147,6 +147,7 @@ const useProvideAuth = () => {
 				username,
 				password,
 			})
+			console.log(loginResult)
 			if (result.data.logIn) {
 				localStorage.setItem(
 					'TOKEN_SNSGRAPHQL',
@@ -179,6 +180,7 @@ const useProvideAuth = () => {
 			localStorage.removeItem('USER_SNSGRAPHQL')
 			setUser(null)
 			setClientId(null)
+			console.log(logoutResult)
 			return true
 		} else {
 			return false
